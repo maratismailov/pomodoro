@@ -16,7 +16,6 @@ const show_rest = () => {
                 icon: './assets/android-chrome-512x512.png',
                 tag: 'pomodoroTimer',
                 renotify: true,
-                requireInteraction: true
             }));
     }
 };
@@ -29,7 +28,6 @@ const show_work= () => {
                 icon: './assets/android-chrome-512x512.png',
                 tag: 'pomodoroTimer',
                 renotify: true,
-                requireInteraction: true
             }));
     }
 };

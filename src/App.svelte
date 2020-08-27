@@ -113,10 +113,10 @@
 
 <main>
   <div class="countdown">{countdown()}</div>
-  <button class="start" on:click={first_start_work} disabled={is_active}>
+  <button id="start" class="start" on:click={first_start_work} disabled={is_active}>
     START
   </button>
   <br />
-  <button class="stop" on:click={stop}>STOP</button>
+  <button id="stop" class="stop" on:click={stop}>STOP</button>
 
 </main>
