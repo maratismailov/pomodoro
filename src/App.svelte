@@ -7,6 +7,7 @@
 
   import rest_sound from "../public/assets/rest_sound.mp3";
   import work_sound from "../public/assets/work_sound.mp3";
+  import silence from "../public/assets/silence.mp3";
 
   let initial_work_minutes = 2;
   let work_minutes = initial_work_minutes;
@@ -18,6 +19,7 @@
   let countdown_interval;
   const restsound = new Audio(rest_sound);
   const worksound = new Audio(work_sound);
+  const silent = new Audio(silence);
 
   //   let is_complete = false
   $: countdown = () => {
@@ -25,8 +27,12 @@
   };
   const format_time = num => `0${num}`.slice(-2);
 
+  const first_start_work = () => {
+    silent.play().catch(error => console.error(error));
+    start_work();
+  };
+
   const start_work = () => {
-	restsound.play().catch(error => console.error(error));
     minutes = initial_work_minutes;
     console.log("start");
     is_active = true;
@@ -51,7 +57,7 @@
   };
 
   const start_rest = () => {
-	minutes = initial_rest_minutes;
+    minutes = initial_rest_minutes;
     is_active = true;
     console.log("start");
     countdown_interval = setInterval(() => {
@@ -75,9 +81,9 @@
 
   const stop = () => {
     clearInterval(countdown_interval);
-	is_active = false;
-	minutes = initial_work_minutes;
-	seconds = 0
+    is_active = false;
+    minutes = initial_work_minutes;
+    seconds = 0;
   };
 </script>
 
@@ -107,7 +113,7 @@
 
 <main>
   <div class="countdown">{countdown()}</div>
-  <button class="start" on:click={start_work} disabled={is_active}>
+  <button class="start" on:click={first_start_work} disabled={is_active}>
     START
   </button>
   <br />
