@@ -23,27 +23,7 @@
   "shortcuts": [
     {
       "name": "Start",
-      "short_name": "Start",
-      "description": "Start",
-      "url": "/",
-      "icons": [
-        {
-          "src": "/assets/android-chrome-192x192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Stop",
-      "short_name": "Stop",
-      "description": "Stop",
-      "url": "/",
-      "icons": [
-        {
-          "src": "/assets/android-chrome-192x192.png",
-          "sizes": "192x192"
-        }
-      ]
+      "url": "/"
     }
   ]
 }
