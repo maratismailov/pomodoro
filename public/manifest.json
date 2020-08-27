@@ -19,31 +19,5 @@
         "sizes": "512x512",
         "type": "image/png"
     }
-],
-  "shortcuts": [
-  {
-    "name": "Start",
-    "short_name": "Start",
-    "description": "Start",
-    "url": "/#start",
-    "icons": [
-      {
-        "src": "/assets/start.svg",
-        "sizes": "512x512"
-      }
-    ]
-  },
-  {
-    "name": "Stop",
-    "short_name": "Stop",
-    "description": "Stop",
-    "url": "/#stop",
-    "icons": [
-      {
-        "src": "/assets/stop.svg",
-        "sizes": "512x512"
-      }
-    ]
-  }
 ]
 }
