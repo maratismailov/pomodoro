@@ -3,8 +3,7 @@
 
   import {
     requestNotificationPermission,
-    show_rest,
-    show_work
+    show_notification
   } from "./sw-helpers";
 
   import rest_sound from "../public/assets/rest_sound.mp3";
@@ -86,7 +85,12 @@
           clearInterval(countdown_interval);
           is_active = false;
           //   is_complete = true;
-          show_rest();
+          if (rest_counter === 3) {
+            show_notification("Time for a long break");
+		  }
+		  else {
+            show_notification("Time for a short break");
+		  }
           restsound.play().catch(error => console.error(error));
           start_rest();
         }
@@ -114,7 +118,7 @@
           clearInterval(countdown_interval);
           is_active = false;
           //   is_complete = true;
-          show_work();
+          show_notification("Time to work");
           worksound.play().catch(error => console.error(error));
           start_work();
         }
@@ -172,8 +176,8 @@
     font-size: 1.5rem;
     width: 17rem;
     margin: auto;
-	margin-bottom: 0.5rem;
-	margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
     color: yellow;
     display: flex;
     justify-content: center;

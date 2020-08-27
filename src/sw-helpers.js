@@ -8,11 +8,11 @@ const requestNotificationPermission = () => {
     }
 };
 
-const show_rest = () => {
+const show_notification = message => {
     if (hasSWSupport && hasNotificationSupport && Notification.permission === 'granted') {
         navigator.serviceWorker.ready
             .then(registration => registration.showNotification('Pomodoro Timer', {
-                body: `It's time to take a break!`,
+                body: message,
                 icon: './assets/android-chrome-512x512.png',
                 tag: 'pomodoroTimer',
                 renotify: true,
@@ -20,16 +20,4 @@ const show_rest = () => {
     }
 };
 
-const show_work= () => {
-    if (hasSWSupport && hasNotificationSupport && Notification.permission === 'granted') {
-        navigator.serviceWorker.ready
-            .then(registration => registration.showNotification('Pomodoro Timer', {
-                body: `It's time to get to work again`,
-                icon: './assets/android-chrome-512x512.png',
-                tag: 'pomodoroTimer',
-                renotify: true,
-            }));
-    }
-};
-
-export { requestNotificationPermission, show_rest, show_work };
+export { requestNotificationPermission, show_notification };
