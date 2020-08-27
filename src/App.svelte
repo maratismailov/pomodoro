@@ -227,6 +227,7 @@
     on:input={() => save_changes()} />
 
   <div class="duration">Long rest duration:</div>
+  <div>(every fourth rest is long)</div>
   <input
     type="number"
     bind:value={initial_long_rest_minutes}
