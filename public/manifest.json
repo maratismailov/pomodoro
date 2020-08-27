@@ -9,41 +9,41 @@
   "description": "Pomodoro timer",
   "icons": [
     {
-        "src": "/assets/android-chrome-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png",
-        "purpose": "any maskable"
+      "src": "/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-        "src": "/assets/android-chrome-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
+      "src": "/assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-],
-"shortcuts": [
-  {
-    "name": "Start",
-    "short_name": "Start",
-    "description": "Start",
-    "url": "/",
-    "icons": [
-      {
-        "src": "/assets/start.svg",
-        "sizes": "512x512"
-      }
-    ]
-  },
-  {
-    "name": "Stop",
-    "short_name": "Stop",
-    "description": "Stop",
-    "url": "/",
-    "icons": [
-      {
-        "src": "/assets/stop.svg",
-        "sizes": "512x512"
-      }
-    ]
-  }
-]
+  ],
+  "shortcuts": [
+    {
+      "name": "Start",
+      "short_name": "Start",
+      "description": "Start",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/assets/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Stop",
+      "short_name": "Stop",
+      "description": "Stop",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/assets/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
