@@ -26,6 +26,7 @@
   const format_time = num => `0${num}`.slice(-2);
 
   const start_work = () => {
+	restsound.play().catch(error => console.error(error));
     minutes = initial_work_minutes;
     console.log("start");
     is_active = true;
