@@ -7,7 +7,8 @@ module.exports = {
     "**/*.ico",
     "**/*.html",
     "**/*.js",
-    "**/*.json"
+    "**/*.json",
+    "**/*.mp3"
   ],
   "swSrc": "public/sw-src.js",
   "swDest": "public/sw.js",

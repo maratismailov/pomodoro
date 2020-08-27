@@ -3,21 +3,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox
 if (workbox) {
     console.log(`Yay! Workbox is loaded 🎉`);
 
-    workbox.precaching.precacheAndRoute([{"revision":"f51a4273e541f5bfdb77be37fd4fed69","url":"build/bundle.css"},{"revision":"e79f7a24e68b9543b951912763fe0a38","url":"global.css"},{"revision":"9fdb6918414643761e1b50a30fd6a5cd","url":"assets/android-chrome-192x192.png"},{"revision":"7dcd9d278bcee48a613d8d213f240761","url":"assets/android-chrome-512x512.png"},{"revision":"d8f3429546afd43dbf436d405148ab52","url":"assets/apple-touch-icon.png"},{"revision":"26b8da8b9e2c686d95b01469f6e9354e","url":"assets/favicon-16x16.png"},{"revision":"b5606d43f3177bf1a13e8192ea684178","url":"assets/favicon-32x32.png"},{"revision":"1876e54b8b83609263df486db3ffd9b3","url":"assets/mstile-150x150.png"},{"revision":"c64beab291de80970aa4887a5a1c9135","url":"favicon.png"},{"revision":"0a9dec80a0209f208c87b018b9034a3b","url":"assets/safari-pinned-tab.svg"},{"revision":"493aabe8d6e99aa7d0f1a44bca9ec831","url":"index.html"},{"revision":"1b6313cba771a40512a1993260f45667","url":"build/bundle.js"}]);
-    workbox.routing.registerRoute(
-        new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
-        new workbox.strategies.CacheFirst({
-            cacheName: 'google-fonts',
-            plugins: [
-                new workbox.expiration.ExpirationPlugin({
-                    maxEntries: 30,
-                }),
-                new workbox.cacheableResponse.CacheableResponsePlugin({
-                    statuses: [0, 200]
-                }),
-            ],
-        }),
-    );
+    workbox.precaching.precacheAndRoute([{"revision":"55750538187979b3c7d3543048262e47","url":"build/bundle.css"},{"revision":"0937071f005e0f0f7516e780fdc21f6b","url":"global.css"},{"revision":"08365c886235cda131a2127eb42c6773","url":"assets/android-chrome-192x192.png"},{"revision":"d79ab3c5cd02ce40f939f34f09b67bc4","url":"assets/android-chrome-512x512.png"},{"revision":"f0e32c3a8281735c0d99e2954dad7b0d","url":"assets/apple-touch-icon.png"},{"revision":"d409b32c8dfba04261953c169449f615","url":"assets/favicon-16x16.png"},{"revision":"1d9a0ec772034d655ac9c12ed0615b49","url":"assets/favicon-32x32.png"},{"revision":"af5a088a8cbb11a2f82e0e5c59f8f751","url":"assets/mstile-150x150.png"},{"revision":"c64beab291de80970aa4887a5a1c9135","url":"favicon.png"},{"revision":"0a9dec80a0209f208c87b018b9034a3b","url":"assets/safari-pinned-tab.svg"},{"revision":"5fb3141a3f74c293310a492a2a6ca3e8","url":"assets/favicon.ico"},{"revision":"493aabe8d6e99aa7d0f1a44bca9ec831","url":"index.html"},{"revision":"38ec515e40bbe787bcaa521de2639753","url":"build/bundle.js"},{"revision":"9c102e7190af31a9477df45111e857e0","url":"manifest.json"},{"revision":"b76b0645d3ba50d44def821b619ab0b6","url":"assets/rest_sound.mp3"},{"revision":"1f2cb5df1df936533fa5edcb29c36229","url":"assets/work_sound.mp3"},{"revision":"163c4dfdd9bf6d7fb8a99d1f925a18ec","url":"build/0936fcc19767773b.mp3"},{"revision":"5fbec54a72132b30816b7083cf97ea64","url":"build/12396a361b706391.mp3"},{"revision":"1f2cb5df1df936533fa5edcb29c36229","url":"build/1e30154e2d390d37.mp3"},{"revision":"1148f8fe4a813c31acf7aadbfabc5d4e","url":"build/7a06d4e84eec6b2f.mp3"},{"revision":"d4c2089b6ba4e7819901b34709f4f259","url":"build/a9c6cf859ca46097.mp3"},{"revision":"14f822c7f902bb3cc01cca645e70841f","url":"build/f711fc71b9dacc2a.mp3"}]);
 
 } else {
     console.log(`Boo! Workbox didn't load 😬`);

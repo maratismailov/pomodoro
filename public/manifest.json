@@ -1,8 +1,8 @@
 {
-  "name": "sveltepwatemplate",
-  "short_name": "sveltepwatemplate",
-  "theme_color": "#1e1e1e",
-  "background_color": "#1e1e1e",
+  "name": "Pomodoro timer",
+  "short_name": "Pomodoro timer",
+  "theme_color": "#228B22",
+  "background_color": "#232023",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",

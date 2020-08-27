@@ -2,6 +2,7 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
+import url from '@rollup/plugin-url';
 import { terser } from 'rollup-plugin-terser';
 import { injectManifest } from 'rollup-plugin-workbox';
 
@@ -18,8 +19,11 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		url({
+			include: ['**/*.mp3']
+		  }),
 		svelte({
-			// enable run-time checks when not in production
+			// enable run-time checks when not in yproduction
 			dev: !production,
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
