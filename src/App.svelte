@@ -74,13 +74,11 @@
 
   const start_work = () => {
     minutes = initial_work_minutes;
-    console.log("start");
     is_active = true;
     requestNotificationPermission();
     countdown_interval = setInterval(() => {
       if (seconds > 0) {
         seconds--;
-        console.log("seconds");
         if (minutes === 0 && seconds === 0) {
           clearInterval(countdown_interval);
           is_active = false;
@@ -110,7 +108,6 @@
       minutes = initial_rest_minutes;
     }
     is_active = true;
-    console.log("start");
     countdown_interval = setInterval(() => {
       if (seconds > 0) {
         seconds--;
