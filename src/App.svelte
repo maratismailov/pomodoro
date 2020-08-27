@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   import {
     requestNotificationPermission,
     show_rest,
@@ -9,19 +11,58 @@
   import work_sound from "../public/assets/work_sound.mp3";
   import silence from "../public/assets/silence.mp3";
 
-  let initial_work_minutes = 2;
+  let rest_counter = 0;
+  let initial_work_minutes;
+  let initial_rest_minutes;
+  let initial_long_rest_minutes;
   let work_minutes = initial_work_minutes;
-  let initial_rest_minutes = 1;
   let rest_minutes = initial_rest_minutes;
   let seconds = 0;
-  let minutes = initial_work_minutes;
+  $: minutes = initial_work_minutes;
   let is_active = false;
   let countdown_interval;
   const restsound = new Audio(rest_sound);
   const worksound = new Audio(work_sound);
   const silent = new Audio(silence);
 
-  //   let is_complete = false
+  onMount(() => {
+    try {
+      initial_work_minutes = localStorage.getItem("initial_work_minutes");
+      if (initial_work_minutes == null) {
+        throw null;
+      }
+    } catch (error) {
+      initial_work_minutes = 25;
+    }
+    try {
+      initial_rest_minutes = localStorage.getItem("initial_rest_minutes");
+      if (initial_rest_minutes == null) {
+        throw null;
+      }
+    } catch (error) {
+      initial_rest_minutes = 5;
+    }
+    try {
+      initial_long_rest_minutes = localStorage.getItem(
+        "initial_long_rest_minutes"
+      );
+      if (initial_long_rest_minutes == null) {
+        throw null;
+      }
+    } catch (error) {
+      initial_long_rest_minutes = 15;
+    }
+  });
+
+  const save_changes = () => {
+    localStorage.setItem("initial_work_minutes", initial_work_minutes);
+    localStorage.setItem("initial_rest_minutes", initial_rest_minutes);
+    localStorage.setItem(
+      "initial_long_rest_minutes",
+      initial_long_rest_minutes
+    );
+  };
+
   $: countdown = () => {
     return `${format_time(minutes)} : ${format_time(seconds)}`;
   };
@@ -51,19 +92,24 @@
         }
         return;
       }
-      seconds = 2;
+      seconds = 59;
       minutes--;
     }, 1000);
   };
 
   const start_rest = () => {
-    minutes = initial_rest_minutes;
+    rest_counter++;
+    if (rest_counter === 4) {
+      minutes = initial_long_rest_minutes;
+      rest_counter = 0;
+    } else {
+      minutes = initial_rest_minutes;
+    }
     is_active = true;
     console.log("start");
     countdown_interval = setInterval(() => {
       if (seconds > 0) {
         seconds--;
-        console.log("seconds");
         if (minutes === 0 && seconds === 0) {
           clearInterval(countdown_interval);
           is_active = false;
@@ -74,7 +120,7 @@
         }
         return;
       }
-      seconds = 2;
+      seconds = 59;
       minutes--;
     }, 1000);
   };
@@ -89,9 +135,25 @@
 
 <style>
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 15rem;
     height: 8rem;
     font-size: 3rem;
+    margin: auto;
+  }
+
+  input {
+    font-size: 2rem;
+    width: 9rem;
+    margin: auto;
+    margin-bottom: 3rem;
+    /* margin-top: 5rem; */
+    color: rgb(20, 80, 60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .countdown {
@@ -101,6 +163,32 @@
     margin-bottom: 3rem;
     margin-top: 5rem;
     color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .duration {
+    font-size: 1.5rem;
+    width: 17rem;
+    margin: auto;
+	margin-bottom: 0.5rem;
+	margin-top: 1rem;
+    color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .details {
+    font-size: 1.5rem;
+    width: 17rem;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .start {
@@ -108,15 +196,38 @@
   }
   .stop {
     background-color: orange;
+    margin-bottom: 8rem;
   }
 </style>
 
-<main>
-  <div class="countdown">{countdown()}</div>
-  <button id="start" class="start" on:click={first_start_work} disabled={is_active}>
-    START
-  </button>
-  <br />
-  <button id="stop" class="stop" on:click={stop}>STOP</button>
+<div class="countdown">{countdown()}</div>
+<button
+  id="start"
+  class="start"
+  on:click={first_start_work}
+  disabled={is_active}>
+  START
+</button>
+<br />
+<button id="stop" class="stop" on:click={stop}>STOP</button>
 
-</main>
+<details class="details">
+  <summary>Settings</summary>
+  <div class="duration">Work duration:</div>
+  <input
+    type="number"
+    bind:value={initial_work_minutes}
+    on:input={() => save_changes()} />
+
+  <div class="duration">Short rest duration:</div>
+  <input
+    type="number"
+    bind:value={initial_rest_minutes}
+    on:input={() => save_changes()} />
+
+  <div class="duration">Long rest duration:</div>
+  <input
+    type="number"
+    bind:value={initial_long_rest_minutes}
+    on:input={() => save_changes()} />
+</details>
