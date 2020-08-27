@@ -23,7 +23,27 @@
   "shortcuts": [
     {
       "name": "Start",
-      "url": "/"
+      "short_name": "Start",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/assets/start.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Stop",
+      "short_name": "Stop",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/assets/stop.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }
