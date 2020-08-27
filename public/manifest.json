@@ -1,39 +1,106 @@
 {
-  "name": "Pomodoro timer",
   "short_name": "Pomodoro timer",
-  "theme_color": "#228B22",
-  "background_color": "#232023",
-  "display": "standalone",
-  "Scope": "/",
+  "name": "Pomodoro timer",
+  "lang": "en",
+  "description": "Pomodoro timer",
   "start_url": "/",
+  "background_color": "#232023",
+  "theme_color": "#228b22",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "any",
   "icons": [
     {
-      "src": "/assets/android-chrome-192x192.png",
+      "src": "assets/android-icon-192x192-manifest-17427.png",
+      "type": "image/png",
       "sizes": "192x192",
-      "type": "image/png"
+      "purpose": "any maskable"
     },
     {
-      "src": "/assets/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "assets/apple-icon-180x180-manifest-17427.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "180x180"
+    },
+    {
+      "src": "assets/apple-icon-152x152-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "assets/apple-icon-144x144-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "assets/apple-icon-120x120-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "assets/apple-icon-114x114-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "assets/favicon-96x96-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "assets/apple-icon-76x76-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "76x76"
+    },
+    {
+      "src": "assets/apple-icon-72x72-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "assets/apple-icon-60x60-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "assets/apple-icon-57x57-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "57x57"
+    },
+    {
+      "src": "assets/favicon-32x32-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "assets/favicon-16x16-manifest-17427.png",
+      "type": "image/png",
+      "sizes": "16x16"
     }
   ],
-  "splash_pages": null,
   "shortcuts": [
-    {
-      "name": "Start",
-      "short_name": "Start",
-      "description": "Start",
-      "url": "/#start",
-      "icons": [{ "src": "/assets/start.svg", "sizes": "512x512" }]
-    },
-    {
-      "name": "Stop",
-      "short_name": "Stop",
-      "description": "Stop",
-      "url": "/#stop",
-      "icons": [{ "src": "/assets/stop.svg", "sizes": "512x512" }]
-    }
-  ]
+  {
+    "name": "Start",
+    "short_name": "Start",
+    "description": "Start",
+    "url": "/#start",
+    "icons": [
+      {
+        "src": "/assets/start.svg",
+        "sizes": "512x512"
+      }
+    ]
+  },
+  {
+    "name": "Stop",
+    "short_name": "Stop",
+    "description": "Stop",
+    "url": "/#stop",
+    "icons": [
+      {
+        "src": "/assets/stop.svg",
+        "sizes": "512x512"
+      }
+    ]
+  }
+]
 }
