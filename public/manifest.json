@@ -25,14 +25,14 @@
       "short_name": "Start",
       "description": "Start",
       "url": "/#start",
-      "icons": [{ "src": "/assets/start.svg", "sizes": "192x192" }]
+      "icons": [{ "src": "/assets/start.svg", "sizes": "512x512" }]
     },
     {
       "name": "Stop",
       "short_name": "Stop",
       "description": "Stop",
       "url": "/#stop",
-      "icons": [{ "src": "/assets/stop.svg", "sizes": "192x192" }]
+      "icons": [{ "src": "/assets/stop.svg", "sizes": "512x512" }]
     }
   ]
 }
